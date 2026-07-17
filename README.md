@@ -1,31 +1,70 @@
-# AdOps Real-Time Marketing Analytics Dashboard
+========================================================================
+AD CAMPAIGN DASHBOARD — PRODUCTION RUN INSTRUCTIONS
+========================================================================
 
-A pixel-perfect, data-driven Flutter application designed from production Figma specs. The app monitors marketing campaign delivery, computes future performance via a Machine Learning regression forecast API, tracks channel spending distribution, and triggers alerts on real-time budget anomalies.
+Thank you for reviewing my submission! This folder contains everything 
+needed to evaluate the Ad Campaigns Dashboard application. 
 
-## 🚀 Key Architectural Pillars
+Inside this folder, you will find:
+1. app-release.apk  -> For immediate testing on an Android device.
+2. ad_dashboard.zip -> The complete, clean Flutter source code.
 
-- **Zero Hardcoded Core Philosophy:** Every progress bar math formulation, chart scaling index, data-legend percentage representation, and optimization advisory message is parsed dynamically from live network endpoints.
-- **State Preservation via Shell Handling:** Employs an `IndexedStack` navigation layout wrapper to prevent Flutter from destroying and rebuilding views, preserving active data stream positions across tab selections.
-- **State Management Engine:** Built on **Riverpod 2.x**, leveraging reactive `FutureProvider.family` and `StreamProvider` loops to isolate business logic cleanly from UI components.
+Below are the step-by-step instructions for both quick testing and full 
+local code execution.
 
----
+------------------------------------------------------------------------
+METHOD 1: QUICK TESTING (Using the APK)
+------------------------------------------------------------------------
+If you simply want to test the working application on an Android device or 
+emulator without compiling the code:
 
-## 🛠️ App Layout & Features
+1. Download the "app-release.apk" file from this folder.
+2. Transfer it to an Android device (or drag-and-drop it onto an active Android Emulator).
+3. Install the APK (enable "Install from Unknown Sources" if prompted by Android).
+4. Launch the "AdOps Dashboard" app from your app drawer.
 
-### 1. Campaigns Hub
-- **Capsule Real-Time Search & Tab Filtering:** Instantly updates views locally against live collections using a reactive case-insensitive evaluation on string matches.
-- **Dynamic Delivery Progress Bars:** Formulates safe mathematical tracking of actual variable expenditures against dynamic campaign budget caps (`(totalSpend / budget).clamp(0.0, 1.0)`).
+*Note: This is a fully optimized production release build.*
 
-### 2. Analytics & Performance Details
-- **Seamless Hero Routing:** Integrates fluid shared-element structural transformations when tapping individual line elements to expand items seamlessly into active headers.
-- **Predictive Performance Visualization:** Renders high-fidelity dual-line performance trends charting historical data directly alongside a shaded uncertainty band (`upper_bound`/`lower_bound`) via `fl_chart`.
+------------------------------------------------------------------------
+METHOD 2: CODE REVIEW & LOCAL EXECUTION (Using the ZIP)
+------------------------------------------------------------------------
+To open, inspect, and run the source code on your local development machine:
 
-### 3. Spend Summary Engine
-- **Thick-Ring Channel Proportions:** Evaluates absolute spending across variable acquisition nodes on-the-fly to assign exact comparative segment weights within a dynamic donut layout.
-- **Interactive Top Components Matrix:** Renders dynamic campaign rankings directly mapped with safe float scaling values (auto-converting floating-point decimals to fixed whole numbers).
+1. Environment Prerequisites:
+   - Flutter SDK: ^3.19.0 (Stable Channel)
+   - Java Development Kit: JDK 17 (Required for Kotlin Script execution)
+   - Target: Android Emulator, Physical Device, or Chrome Web Browser
 
-### 4. Continuous Threat Monitoring
-- **Automated API Polling Loop:** Instantiates a standalone `async*` generator ticking continuously every 30 seconds to fetch global snapshots, processing metric variance rules safely without halting background application state.
+2. Step-by-Step Setup:
+   a. Download and extract "ad_dashboard.zip".
+   b. Open your terminal, navigate into the extracted directory:
+      cd ad_dashboard
+   c. Fetch all required package dependencies (Riverpod, fl_chart, etc.):
+      flutter pub get
+   d. Clear any localized build caching and rebuild the dependency tree:
+      flutter clean
+      flutter pub get
 
----
+3. Running the Project:
+   - To launch the app in standard debug mode with hot-reload enabled:
+     flutter run
+   - To run specifically on a web browser layout:
+     flutter run -d chrome
 
+4. Running Automated Tests:
+   - To execute the automated widget and navigation state test suite:
+     flutter test
+
+------------------------------------------------------------------------
+ARCHITECTURAL HIGHLIGHTS FOR EVALUATION
+------------------------------------------------------------------------
+- State Management: Handled purely via Riverpod 2.x using FutureProvider.family 
+  and StreamProvider streams to eliminate logic from the UI layer.
+- Zero Hardcoded Math: All progress tracking layouts, chart ratios, and data 
+  legends are parsed and computed dynamically from live network data models.
+- Navigation Shell: Implements an IndexedStack wrapper to preserve stream 
+  positions and application state flawlessly across bottom navigation tab switches.
+- Theme System: Fully supports system-level adaptive Light and Dark theme modes.
+- Animations: Smooth shared-element Hero animations linking the dashboard 
+  list cleanly to the detailed metric analysis views.
+========================================================================
